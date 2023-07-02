@@ -23,55 +23,61 @@ function Total(exercise){
 const App = () => {
 
   // const course = 'Half Stack application development'
-  // const part1 = {
-  //   name: 'Fundamentals of React',
-  //   exercises: 10
-  // }
-  // const part2 = {
-  //   name: 'Using props to pass data',
-  //   exercises: 7
-  // }
-  // const part3 = {
-  //   name: 'State of a component',
-  //   exercises: 14
-  // }
+  // const parts = [
+  //   {
+  //     name: 'Fundamentals of React',
+  //     exercises: 10
+  //   },
+  //   {
+  //     name: 'Using props to pass data',
+  //     exercises: 7
+  //   },
+  //   {
+  //     name: 'State of a component',
+  //     exercises: 14
+  //   }
+  // ]
 
-  const course = 'Half Stack application development'
-  const parts = [
-    {
-      name: 'Fundamentals of React',
-      exercises: 10
-    },
-    {
-      name: 'Using props to pass data',
-      exercises: 7
-    },
-    {
-      name: 'State of a component',
-      exercises: 14
-    }
-  ]
+  const course = {
+    name: 'Half Stack application development',
+    parts: [
+      {
+        name: 'Fundamentals of React',
+        exercises: 10
+      },
+      {
+        name: 'Using props to pass data',
+        exercises: 7
+      },
+      {
+        name: 'State of a component',
+        exercises: 14
+      }
+    ]
+  }
+
+  let goto = course.parts;
 
   return (
     <>
-      <Header course={course}/>
+      <Header course={course.name}/>
       <Content 
         part={{
-          one: parts[0].name,
-          two: parts[1].name,
-          three: parts[2].name
+          one: goto[0].name,
+          two: goto[1].name,
+          three: goto[2].name
         }}
         exercise={{
-          first: parts[0].exercises,
-          second: parts[1].exercises,
-          third: parts[2].exercises
+          first: goto[0].exercises,
+          second: goto[1].exercises,
+          third: goto[2].exercises
         }}
       />
 
       <Total 
-        one={parts[0].exercises}
-        two={parts[1].exercises}
-        three={parts[2].exercises}
+        one={goto[0].exercises}
+        two={goto[1].exercises}
+        three={goto[2].exercises}
       />
     </>
   )
