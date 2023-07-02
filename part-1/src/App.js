@@ -21,48 +21,57 @@ function Total(exercise){
 }
 
 const App = () => {
+
   // const course = 'Half Stack application development'
-  // const part1 = 'Fundamentals of React'
-  // const exercises1 = 10
-  // const part2 = 'Using props to pass data'
-  // const exercises2 = 7
-  // const part3 = 'State of a component'
-  // const exercises3 = 14
+  // const part1 = {
+  //   name: 'Fundamentals of React',
+  //   exercises: 10
+  // }
+  // const part2 = {
+  //   name: 'Using props to pass data',
+  //   exercises: 7
+  // }
+  // const part3 = {
+  //   name: 'State of a component',
+  //   exercises: 14
+  // }
 
   const course = 'Half Stack application development'
-  const part1 = {
-    name: 'Fundamentals of React',
-    exercises: 10
-  }
-  const part2 = {
-    name: 'Using props to pass data',
-    exercises: 7
-  }
-  const part3 = {
-    name: 'State of a component',
-    exercises: 14
-  }
+  const parts = [
+    {
+      name: 'Fundamentals of React',
+      exercises: 10
+    },
+    {
+      name: 'Using props to pass data',
+      exercises: 7
+    },
+    {
+      name: 'State of a component',
+      exercises: 14
+    }
+  ]
 
   return (
     <>
       <Header course={course}/>
       <Content 
         part={{
-          one: part1.name,
-          two: part2.name,
-          three: part3.name
+          one: parts[0].name,
+          two: parts[1].name,
+          three: parts[2].name
         }}
         exercise={{
-          first: part1.exercises,
-          second: part2.exercises,
-          third: part3.exercises
+          first: parts[0].exercises,
+          second: parts[1].exercises,
+          third: parts[2].exercises
         }}
       />
 
       <Total 
-        one={part1.exercises}
-        two={part2.exercises}
-        three={part3.exercises}
+        one={parts[0].exercises}
+        two={parts[1].exercises}
+        three={parts[2].exercises}
       />
     </>
   )
