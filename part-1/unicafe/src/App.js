@@ -12,6 +12,17 @@ const Display = ({name, count}) => {
   )
 }
 
+const Statistics = ({title, children}) => {
+  return (
+    <>
+      <h2>{title}</h2>
+      <div>
+        {children}
+      </div>
+    </>
+  )
+}
+
 function App() {
 
   const [good, setGood] = useState(0)
@@ -51,6 +62,8 @@ function App() {
     console.log({updatedBad})
   }
 
+  
+
 
   return (
     <div>
@@ -61,13 +74,14 @@ function App() {
       <Button handleClick={neutralClick} title={'Neutral'}/>
       <Button handleClick={badClick} title={'Bad'}/>
 
-      <h2>Statistics</h2>
-      <Display name={'Good'} count={good}/>
-      <Display name={'Neutral'} count={neutral}/>
-      <Display name={'Bad'} count={bad}/>
-      <Display name={'All'} count={total}/>
-      <Display name={'Average'} count={average/total}/>
-      <Display name={'positive'} count={(positive/total)*100+' %'}/>
+      <Statistics title={'Statistics'}>
+        <Display name={'Good'} count={good}/>
+        <Display name={'Neutral'} count={neutral}/>
+        <Display name={'Bad'} count={bad}/>
+        <Display name={'All'} count={total}/>
+        <Display name={'Average'} count={average/total}/>
+        <Display name={'positive'} count={(positive/total)*100+' %'}/>
+      </Statistics>
     </div>
   );
 }
