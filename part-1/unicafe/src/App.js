@@ -6,22 +6,12 @@ const Button = ({handleClick, title}) => {
   )
 }
 
-const Display = ({name, count}) => {
+const Statistics = ({name, count}) => {
   return (
     <p>{name} = <b>{count}</b></p>
   )
 }
 
-const Statistics = ({title, children}) => {
-  return (
-    <>
-      <h2>{title}</h2>
-      <div>
-        {children}
-      </div>
-    </>
-  )
-}
 
 function App() {
 
@@ -62,9 +52,6 @@ function App() {
     console.log({updatedBad})
   }
 
-  
-
-
   return (
     <div>
       <h1>Unicafe</h1>
@@ -74,14 +61,13 @@ function App() {
       <Button handleClick={neutralClick} title={'Neutral'}/>
       <Button handleClick={badClick} title={'Bad'}/>
 
-      <Statistics title={'Statistics'}>
-        <Display name={'Good'} count={good}/>
-        <Display name={'Neutral'} count={neutral}/>
-        <Display name={'Bad'} count={bad}/>
-        <Display name={'All'} count={total}/>
-        <Display name={'Average'} count={average/total}/>
-        <Display name={'positive'} count={(positive/total)*100+' %'}/>
-      </Statistics>
+      <h2>Statistics</h2>
+        <Statistics name={'Good'} count={good}/>
+        <Statistics name={'Neutral'} count={neutral}/>
+        <Statistics name={'Bad'} count={bad}/>
+        <Statistics name={'All'} count={total}/>
+        <Statistics name={'Average'} count={average/total}/>
+        <Statistics name={'positive'} count={(positive/total)*100+' %'}/>
     </div>
   );
 }
