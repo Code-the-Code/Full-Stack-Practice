@@ -6,7 +6,7 @@ const Button = ({handleClick, title}) => {
   )
 }
 
-const Condition = ({all, children}) => {
+const Statistics = ({all, children}) => {
   if(all===0){
     return(
       <div>
@@ -19,9 +19,9 @@ const Condition = ({all, children}) => {
   )
 }
 
-const Statistics = ({name, count}) => {
+const StatisticsLine = ({name, count}) => {
   return (
-    <p>{name} = <b>{count}</b></p>
+    <p>{name} <b>{count}</b></p>
   )
 }
 
@@ -75,14 +75,14 @@ function App() {
       <Button handleClick={badClick} title={'Bad'}/>
 
       <h2>Statistics</h2>
-        <Condition all={total}>
-          <Statistics name={'Good'} count={good}/>
-          <Statistics name={'Neutral'} count={neutral}/>
-          <Statistics name={'Bad'} count={bad}/>
-          <Statistics name={'All'} count={total}/>
-          <Statistics name={'Average'} count={average/total}/>
-          <Statistics name={'positive'} count={(positive/total)*100+' %'}/>
-        </Condition>
+        <Statistics all={total}>
+          <StatisticsLine name={'Good'} count={good}/>
+          <StatisticsLine name={'Neutral'} count={neutral}/>
+          <StatisticsLine name={'Bad'} count={bad}/>
+          <StatisticsLine name={'All'} count={total}/>
+          <StatisticsLine name={'Average'} count={average/total}/>
+          <StatisticsLine name={'positive'} count={(positive/total)*100+' %'}/>
+        </Statistics>
     </div>
   );
 }
