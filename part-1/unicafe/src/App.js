@@ -25,7 +25,9 @@ const Statistics = ({all, children}) => {
   }
   return(
     <table>
-      {children}     
+      <tbody>
+        {children}     
+      </tbody>
     </table>
   )
 }
@@ -50,7 +52,6 @@ function App() {
     setTotal(updateTotal)
     setAverage(updateAvg)
     setPositive(updatePositive)
-    console.log({updatedGood})
   }
 
   const neutralClick = () => {
@@ -58,7 +59,6 @@ function App() {
     const updateTotal = total + 1
     setNeutral(updatedNeutral)
     setTotal(updateTotal)
-    console.log({updatedNeutral})
   }
 
   const badClick = () => {
@@ -68,7 +68,6 @@ function App() {
     setBad(updatedBad)
     setTotal(updateTotal)
     setAverage(updateAvg)
-    console.log({updatedBad})
   }
 
   return (
