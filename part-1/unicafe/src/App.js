@@ -6,6 +6,15 @@ const Button = ({handleClick, title}) => {
   )
 }
 
+const StatisticsLine = ({name, count}) => {
+  return (
+    <tr>
+      <td>{name}</td>
+      <td><b>{count}</b></td>
+    </tr>
+  )
+}
+
 const Statistics = ({all, children}) => {
   if(all===0){
     return(
@@ -15,15 +24,12 @@ const Statistics = ({all, children}) => {
     )
   }
   return(
-    <div>{children}</div>
+    <table>
+      {children}     
+    </table>
   )
 }
 
-const StatisticsLine = ({name, count}) => {
-  return (
-    <p>{name} <b>{count}</b></p>
-  )
-}
 
 
 function App() {
