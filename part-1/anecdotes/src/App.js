@@ -4,6 +4,16 @@ const Button = ({handleClick, name}) => {
   return <button onClick={handleClick}>{name}</button>
 }
 
+const Highvote = ({children, high}) => {
+  if(high === 0){
+    return(
+      <p>No votes yet</p>
+    )
+  } else {
+    return ([children])
+  }
+}
+
 const App = () => {
   const anecdotes = [
     'If it hurts, do it more often.',
@@ -18,6 +28,9 @@ const App = () => {
    
   const [selected, setSelected] = useState(0)
   const [value, setValue] = useState(new Array(anecdotes.length).fill(0))
+
+  const max = Math.max(...value)
+  const index = value.indexOf(max)
 
   const voteNum = () => {
     setValue((arr) => {
@@ -38,6 +51,7 @@ const App = () => {
 
   return (
     <div>
+      <h1>Anecdote of the day</h1>
       {anecdotes[selected]}
       <div>
          <p>has {value[selected]} votes</p>
@@ -46,6 +60,12 @@ const App = () => {
         <Button handleClick={voteNum} name={'vote'}/>
         <Button handleClick={anecdoteNum} name={'next anecdote'}/>
       </div>
+
+      <h2>Anecdote with most vote</h2>
+      <Highvote high={max}>
+        <p>{anecdotes[index]}</p>
+        <p>has {value[index]} votes</p>
+      </Highvote>
     </div>
   )
 }
