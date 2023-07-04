@@ -17,22 +17,34 @@ const App = () => {
   ]
    
   const [selected, setSelected] = useState(0)
+  const [value, setValue] = useState(new Array(anecdotes.length).fill(0))
+
+  const voteNum = () => {
+    setValue((arr) => {
+      const newArr = [...arr]
+      newArr[selected] += 1
+      return [...newArr]
+    })
+  }
 
   const anecdoteNum = () => {
-    let num = Math.floor(Math.random()*10)
+    let num = Math.floor(Math.random()*anecdotes.length)
     if (num > anecdotes.length-1){
       num -= 2;
     }else{
       setSelected(num)
     }
-    console.log(num)
   }
 
   return (
     <div>
       {anecdotes[selected]}
       <div>
-      <Button handleClick={anecdoteNum} name={'next anecdote'}/>
+         <p>has {value[selected]} votes</p>
+      </div>
+      <div>
+        <Button handleClick={voteNum} name={'vote'}/>
+        <Button handleClick={anecdoteNum} name={'next anecdote'}/>
       </div>
     </div>
   )
